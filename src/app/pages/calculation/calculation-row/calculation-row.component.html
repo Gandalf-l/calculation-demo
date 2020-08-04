@@ -1,0 +1,25 @@
+<td class="cell">
+  <label>
+    <span>{{rowData[0][1]}}</span>
+  </label>
+</td>
+
+<td class="cell">
+  <label>
+    <input type="checkbox" class="input-cell" [ngModel]="qwe">
+  </label>
+</td>
+
+<td class="cell">
+  <label>
+    <input type="text" maxlength="1" class="input-cell" value="{{rowData[2][1]}}">
+  </label>
+</td>
+
+
+
+<td *ngFor="let data of rowData.slice(3)" class="cell">
+  <label>
+    <input type="text" class="input-cell" value="{{isNan(data[1])}}">
+  </label>
+</td>

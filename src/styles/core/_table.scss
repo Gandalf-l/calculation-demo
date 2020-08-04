@@ -1,0 +1,22 @@
+@import "color";
+
+table, tr, th, td {
+  display: grid;
+  font-size: 1rem;
+}
+
+table {
+  border: 1px solid $color-light;
+  border-top: none;
+}
+
+td, th {
+  background: white;
+  overflow: hidden;
+}
+
+thead {
+  border-top: 1px solid $color-light;
+  border-bottom: 1px solid $color-light;
+}
+

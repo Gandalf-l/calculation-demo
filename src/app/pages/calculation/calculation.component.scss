@@ -1,0 +1,25 @@
+@import "~styles/styles.scss";
+
+.table {
+  width: 100%;
+  background: $color-light;
+  .table-head-row, .table-body-row {
+    display: grid;
+    grid-gap: 1px;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1.5rem 1.5rem 1.5rem 2fr 2fr;
+
+  }
+  .table-body {
+    background: transparent;
+    display: grid;
+    grid-gap: 1px;
+  }
+
+}
+
+
+.name {
+  text-align: center;
+}

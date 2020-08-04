@@ -1,0 +1,13 @@
+<p class="name">Calculator</p>
+<table class="table">
+  <thead>
+    <tr class="table-head-row">
+      <th *ngFor="let columnName of displayedColumnsNames">{{columnName | titlecase}}</th>
+    </tr>
+  </thead>
+  <tbody class="table-body">
+    <tr *ngFor="let rowData of rowsData | async">
+      <app-calculation-row [rowDataJson]="rowData" class="table-body-row"></app-calculation-row>
+    </tr>
+  </tbody>
+</table>

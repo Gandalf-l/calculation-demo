@@ -1,0 +1,33 @@
+@import "breakpoints";
+
+html {
+  font-size: 10px;
+}
+
+@media screen and (min-width: $breakpointSmallDevice) {
+
+  html {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: $breakpointMediumDevice) {
+
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: $breakpointLargeDevice) {
+
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: $breakpointExtraLargeDevice) {
+
+  html {
+    font-size: 14px;
+  }
+}
