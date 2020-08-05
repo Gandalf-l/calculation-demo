@@ -1,25 +1,29 @@
-<td class="cell">
+<td class="cell" [ngClass]="{activate: activate}">
   <label>
     <span>{{rowData[0][1]}}</span>
   </label>
 </td>
 
-<td class="cell">
+<td class="cell" [ngClass]="{activate: activate}">
   <label>
-    <input type="checkbox" class="input-cell" [ngModel]="qwe">
+    <input type="checkbox" class="input-cell" [(ngModel)]="rowData[1][1]">
   </label>
 </td>
 
-<td class="cell">
+<td class="cell" [ngClass]="{activate: activate}">
   <label>
-    <input type="text" maxlength="1" class="input-cell" value="{{rowData[2][1]}}">
+    <input type="text" maxlength="1" class="input-cell" [(ngModel)]="rowData[2][1]" (ngModelChange)="onTypeChange()">
   </label>
 </td>
 
-
-
-<td *ngFor="let data of rowData.slice(3)" class="cell">
+<td class="cell" [ngClass]="{activate: activate}">
   <label>
-    <input type="text" class="input-cell" value="{{isNan(data[1])}}">
+    <input type="text" class="input-cell" [(ngModel)]="rowData[3][1]">
+  </label>
+</td>
+
+<td *ngFor="let data of rowData.slice(4); let i = index" class="cell" [ngClass]="{activate: activate}">
+  <label>
+    <input type="text" class="input-cell" [(ngModel)]="data[1]" (blur)="onNumberChange( i + 4)">
   </label>
 </td>

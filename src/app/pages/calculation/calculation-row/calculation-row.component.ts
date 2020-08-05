@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ICalculationEntry} from '@shared/interfaces/calculation-entry';
-import {FormArray, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-calculation-row',
@@ -13,33 +12,27 @@ export class CalculationRowComponent implements OnInit {
   public rowDataJson: ICalculationEntry;
 
   public rowData: any[][];
-  public rowForm: FormArray = new FormArray([]);
-  qwe: any = true;
+  public activate: boolean = false;
 
   constructor() {
-
   }
 
   ngOnInit(): void {
     this.rowData = Object.entries(this.rowDataJson);
     this.rowData = this.rowData.slice(0, -2).concat(Object.entries(this.rowData.slice(-2)[0][1]), this.rowData.slice(-1));
-    for (const data of this.rowData) {
-      this.rowForm.push(new FormControl(data));
-    }
     console.log(123, this.rowData.slice(-2));
-    console.log(2, this.rowForm.value);
-    // for (const cell of Object.values(this.rowData)) {
-    //   // console.log(cell);
-    // }
-    // console.log(Object.values(this.rowData));
+    this.activate = this.rowData[2][1] === 'U';
   }
 
-  public isNan(data: any): any {
-    if (!isNaN(data) && data !== '') {
-      console.log(data);
-      return data.toFixed(3);
-    } else {
-      return data;
+  public onTypeChange(): void {
+    this.activate = this.rowData[2][1] === 'U';
+  }
+
+  public onNumberChange(index: any): void {
+    if (!isNaN(this.rowData[index][1])) {
+      console.log(index, this.rowData[index][1]);
+      this.rowData[index][1] = Math.round(this.rowData[index][1] * 1000) / 1000;
     }
+    console.log(123, this.rowData[index][1]);
   }
 }
